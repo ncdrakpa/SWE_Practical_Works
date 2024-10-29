@@ -61,7 +61,6 @@ def cunt_uninque_words(text):
     words = text.lower().split()
     unique_words = set(words)
     return len(set(words))
-
     text = "Unique words are counted only once"
     unique_word_count = cunt_uninque_words(text)
     print(f"Number of unique words: {unique_word_count}")
