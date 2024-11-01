@@ -246,20 +246,25 @@ def infix_to_postfix(expression):
     
     # Process each token in the expression
     for token in expression.split():
-        if token.isalnum():  # If the token is an operand (number/variable), add's to output
+        if token.isalnum(): 
+         # If the token is an operand (number/variable), add's to output
             output.append(token)
-        elif token in precedence:  # If the token is an operator
+        elif token in precedence:
+        # If the token is an operator
             while (stack and stack[-1] != '(' and
                    (precedence[stack[-1]] > precedence[token] or
                     (precedence[stack[-1]] == precedence[token] and associativity[token] == 'L'))):
                 output.append(stack.pop())
             stack.append(token)
-        elif token == '(':  # If the token is an open parenthesis, push to stack
+        elif token == '(':  
+        # If the token is an open parenthesis, push to stack
             stack.append(token)
-        elif token == ')':  # If the token is a close parenthesis
+        elif token == ')': 
+        # If the token is a close parenthesis
             while stack and stack[-1] != '(':
                 output.append(stack.pop())
-            stack.pop()  # Pop the '(' but don't add it to the output
+            stack.pop()  
+            # Pop the '(' but don't add it to the output
 
     # Pop all remaining operators from the stack to the output
     while stack:
